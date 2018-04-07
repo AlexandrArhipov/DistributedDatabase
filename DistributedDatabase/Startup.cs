@@ -35,7 +35,7 @@ namespace DistributedDatabase
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=CharacterForm}/{id?}");
+                    template: "{controller=Form}/{action=UserForm}/{id?}");
             });
         }
     }
