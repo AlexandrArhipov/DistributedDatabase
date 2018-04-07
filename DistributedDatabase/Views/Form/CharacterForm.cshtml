@@ -3,24 +3,81 @@
 }
 <h1>Создание персонажа</h1>
 <form method="post">
-    <label>Имя:</label><br />
-    <input type="text" name="name" /><br /><br />
-    <label>Пол:</label><br />
-    <select name="sex" >
-        <option value="M"> Мужской </option>
-        <option value="F"> Женский </option>
-    </select><br /><br />
-    <label>Цвет кожи:</label><br />
-    <input type="text" name="skin" /><br /><br />
-    <label>Рост:</label><br />
-    <input type="text" name="height" /><br /><br />
-    <label>Вес:</label><br />
-    <input type="text" name="weight" /><br /><br />
-    <label>Класс:</label><br />
-    <input type="text" name="class" /><br /><br />
-    <label>Расса:</label><br />
-    <input type="text" name="race" /><br /><br />
-    <input type="submit" value="Отправить" />
-</form>
+  <div class="form-group">
+  <!-- <label class="label">Имя:</label><br />
+  <input class="glyphicon-text-background" type="text" name="name" /><br /><br />
+  <label class="label">Пол:</label><br />
+  <select class="glyphicon-text-background" name="sex" >
+    <option value="M"> Мужской </option>
+    <option value="F"> Женский </option>
+  </select><br /><br />
+  <label class="label">Цвет кожи:</label><br />
+  <input class="glyphicon-text-background" type="text" name="skin" /><br /><br />
+  <label class="label">Рост:</label><br />
+  <input class="glyphicon-text-background" type="text" name="height" /><br /><br />
+  <label class="label">Вес:</label><br />
+  <input class="glyphicon-text-background" type="text" name="weight" /><br /><br />
+  <label class="label">Класс:</label><br />
+  <input class="glyphicon-text-background" type="text" name="class" /><br /><br />
+  <label class="label">Расса:</label><br />
+  <input class="glyphicon-text-background" type="text" name="race" /><br /><br /> -->
+
+    <div class="form-group row">
+      <label for="name-input" class="col-sm-1 col-form-label">Имя</label>
+      <div class="col-sm-5">
+        <input class="form-control" type="text" name="name" placeholder="Введите имя персонажа" id="name-input">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="sex-select" class="col-sm-1 col-form-label">Пол</label>
+      <div class="col-sm-2">
+        <select class="form-control" name="sex" id="sex-select">
+          <option value="M">Мужской</option>
+          <option value="F">Женский</option>        
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="skin-select" class="col-sm-1 col-form-label">Цвет кожи</label>
+      <div class="col-sm-2">
+        <select class="form-control" name="skin" id="skin-select">
+          <option value="Black">Черный</option>
+          <option value="White">Белый</option>        
+          <option value="Green">Зеленый</option>        
+          <option value="Red">Красный</option>        
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="height-input" class="col-sm-1 col-form-label">Рост</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="number" name="height" placeholder="00" id="height-input">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="weight-input" class="col-sm-1 col-form-label">Вес</label>
+      <div class="col-sm-1">
+        <input class="form-control" type="number" name="weight" placeholder="00" id="weight-input">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="class-select" class="col-sm-1 col-form-label">Класс</label>
+      <div class="col-sm-2">
+        <select class="form-control" name="class" id="class-select">
+          <option value="Healer">Лечильщик</option>       
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="race-select" class="col-sm-1 col-form-label">Расса</label>
+      <div class="col-sm-2">
+        <select class="form-control" name="race" id="race-select">
+          <option value="Nord">Норд</option>        
+        </select>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Отправить</button>
+  </form>
 
 
