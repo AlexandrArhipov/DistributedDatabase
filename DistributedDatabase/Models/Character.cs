@@ -14,9 +14,9 @@ namespace DistributedDatabase.Models
         [Column("name")] public string Name { get; set; }
         [Column("sex")] public string Sex { get; set; }
         [Column("skin")] public string Skin { get; set; }
-        [Column("height")] public string Height { get; set; }
-        [Column("weight")] public string Weight { get; set; }
-        [Column("class")] public Class Class { get; set; }
-        [Column("race")] public Race Race { get; set; }
+        [Column("height")] public int Height { get; set; }
+        [Column("weight")] public int Weight { get; set; }
+        [Column("class")] public int ClassId { get; set; }
+        [Column("race")] public int RaceId { get; set; }
     }
 }

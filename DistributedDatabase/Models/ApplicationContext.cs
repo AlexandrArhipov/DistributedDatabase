@@ -9,6 +9,8 @@ namespace DistributedDatabase.Models
 {
     public class ApplicationContext : DbContext
     {
+        public DbSet<Race> Races { get; set; }
+        public DbSet<Class> Classes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Character> Characters { get; set; }
 
