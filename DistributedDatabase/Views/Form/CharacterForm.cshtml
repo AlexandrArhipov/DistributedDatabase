@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "CharacterForm";
+}
+<h1>Создание персонажа</h1>
+<form method="post">
+    <label>Имя:</label><br />
+    <input type="text" name="name" /><br /><br />
+    <label>Пол:</label><br />
+    <select name="sex" >
+        <option value="M"> Мужской </option>
+        <option value="F"> Женский </option>
+    </select><br /><br />
+    <label>Цвет кожи:</label><br />
+    <input type="text" name="skin" /><br /><br />
+    <label>Рост:</label><br />
+    <input type="text" name="height" /><br /><br />
+    <label>Вес:</label><br />
+    <input type="text" name="weight" /><br /><br />
+    <label>Класс:</label><br />
+    <input type="text" name="class" /><br /><br />
+    <label>Расса:</label><br />
+    <input type="text" name="race" /><br /><br />
+    <input type="submit" value="Отправить" />
+</form>
+
+
