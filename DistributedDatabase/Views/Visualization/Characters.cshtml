@@ -7,7 +7,7 @@
 
 @section DevelopmentEnvironment {
     <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.common.min.css" />
-    <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.metro.min.css" />
+    <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.materialblack.min.css" />
     <script src="~/lib/kendo-ui/js/kendo.all.min.js"></script>
     <script src="~/lib/kendo-ui/js/cultures/kendo.culture.ru-RU.min.js"></script>
     <script src="~/lib/kendo-ui/js/kendo.aspnetmvc.min.js"></script>
@@ -16,57 +16,65 @@
 <h2>Characters</h2>
 <div class="demo-section k-content">
     @(Html.Kendo()
-            .TabStrip()
-            .Name("tabstrip")
-            .Animation(animation =>
-                animation.Open(effect =>
-                    effect.Fade(FadeDirection.In)))
-            .Items(tabstrip =>
-            {
-                tabstrip.Add()
-            .Text("Таблица")
-            .Selected(true)
-            .Content(x =>
-                Html.Kendo().Grid(Model)
-                    .Name("Пользователи")
-                    .ToolBar(tools => tools.Pdf())
-                    .Pdf(pdf => pdf
-                        .AllPages()
-                        .AvoidLinks()
-                        .PaperSize("A4")
-                        .Margin("2cm", "1cm", "1cm", "1cm")
-                        .Landscape()
-                        .RepeatHeaders()
-                        .TemplateId("page-template")
-                        .FileName("acount_manager/user.pdf")
-                        .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
-                    )
-                    //.ToolBar(tools => tools.Excel())
-                    //.Excel(excel => excel
-                    //    .FileName("Kendo UI Grid Export.xlsx")
-                    //    .Filterable(true)
-                    //    .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
-                    //)
+        .TabStrip()
+        .Name("tabstrip")
+        .Animation(animation =>
+            animation.Open(effect =>
+                effect.Fade(FadeDirection.In)))
+        .Items(tabstrip =>
+        {
+        tabstrip.Add()
+        .Text("Таблица")
+        .Selected(true)
+        .Content(x =>
+            Html.Kendo().Grid(Model)
+                .Name("Персонажи")
+                .ToolBar(tools => tools.Pdf())
+                .Pdf(pdf => pdf
+                    .AllPages()
+                    .AvoidLinks()
+                    .PaperSize("A4")
+                    .Margin("2cm", "1cm", "1cm", "1cm")
+                    .Landscape()
+                    .RepeatHeaders()
+                    .TemplateId("page-template")
+                    .FileName("acount_manager/character.pdf")
+                    .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
+                )
+                .ToolBar(tools => tools.Excel())
+                .Excel(excel => excel
+                    .FileName("acount_manager/character.xlsx")
+                    .Filterable(true)
+                    .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
+                )
 
-                    .Columns(columns =>
-                    {
-                                columns.Bound(p => p.Login).Title("Login").Width(100);
-                                columns.Bound(p => p.Email).Title("Email").Width(130);
-                                columns.Bound(p => p.DateOfBirth).Title("DateOfBirth").Width(130);
-                                columns.Bound(p => p.Country).Title("Country").Width(130);
-                            })
-                    .Sortable()
-                    .Scrollable(scr => scr.Height(430))
-                    .Filterable()
-                    .DataSource(dataSource => dataSource
-                        .Ajax()
-                        .PageSize(20)
-                        .ServerOperation(false)
-                     )
-                );
-                tabstrip.Add()
-            .Text("График")
-            .Content(@<div class="chart">
+                .Columns(columns =>
+                {
+                    columns.Bound(p => p.Name).Title("Имя").Width(100);
+                    columns.Bound(p => p.Sex).Title("Пол").Width(130);
+                    columns.Bound(p => p.Skin).Title("Цвет кожи").Width(130);
+                    columns.Bound(p => p.Height).Title("Рост").Width(130);
+                    columns.Bound(p => p.Weight).Title("Вес").Width(130);
+                    //columns.Bound(p => ((List<Race>) ViewData["Races"])
+                    //    .First(race => race.Id == p.RaceId))
+                    //    .Title("Раса").Width(130);
+                    //columns.Bound(p => ((List<Class>) ViewData["Classes"])
+                    //    .First(race => race.Id == p.ClassId))
+                    //    .Title("Класс").Width(130);
+
+                })
+                .Sortable()
+                .Scrollable(scr => scr.Height(430))
+                .Filterable()
+                .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .PageSize(20)
+                    .ServerOperation(false)
+                 )
+            );
+        tabstrip.Add()
+        .Text("График")
+        .Content(@<div class="chart">
                         @(Html.Kendo().Chart(Model)
                                             .Name("chart")
                                             .Title(title => title
@@ -81,31 +89,24 @@
                                                 series.Pie(new dynamic[] {
                                         new {
                                             category ="< 20 лет",
-                                            value = 100*Model.Where(user =>
-                                                (DateTime.UtcNow.Year - user.DateOfBirth.Year) <= 20).Count()/Model.Count(),
+                                            value = 1,
                                             color ="#9de219"
                                         },
                                         new {
                                             category ="20-30 лет",
-                                            value = 100*Model.Where(user =>
-                                                (DateTime.UtcNow.Year - user.DateOfBirth.Year) > 20 &&
-                                                (DateTime.UtcNow.Year - user.DateOfBirth.Year) <= 30)
-                                                    .Count()/Model.Count(),
+                                            value = 1,
                                             color ="#90cc38"
                                         },
                                         new
                                         {
                                             category = "30-40 лет",
-                                            value = 100*Model.Where(user =>
-                                                (DateTime.UtcNow.Year - user.DateOfBirth.Year) > 30 &&
-                                                (DateTime.UtcNow.Year - user.DateOfBirth.Year) <= 40).Count()/Model.Count(),
+                                            value = 1,
                                             color = "#068c35"
                                         },
                                         new
                                         {
                                             category = "> 40 лет",
-                                            value = 100*Model.Where(user =>
-                                                 (DateTime.UtcNow.Year - user.DateOfBirth.Year) > 40).Count()/Model.Count(),
+                                            value = 1,
                                             color = "#006634"
                                         }
                                                 })

@@ -12,8 +12,13 @@ namespace DistributedDatabase.Controllers
     public class VisualizationController : Controller
     {
         [HttpGet]
-        public IActionResult Characters() => 
-            View((new ApplicationContext()).Characters);
+        public IActionResult Characters()
+        {
+            var context = new ApplicationContext();
+            ViewData["Races"] = context.Races;
+            ViewData["Classes"] = context.Classes;
+            return View(context.Characters);
+        }
 
         [HttpGet]
         public IActionResult Users() => 
