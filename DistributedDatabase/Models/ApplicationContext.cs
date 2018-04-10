@@ -16,7 +16,8 @@ namespace DistributedDatabase.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;UserId=root;Password=root;database=acount_manager;");
+            optionsBuilder.UseMySQL(
+                "Server=localhost;UserId=root;Password=root;database=acount_manager;");
         }
     }
 }

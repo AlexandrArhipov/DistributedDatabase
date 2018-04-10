@@ -9,20 +9,6 @@ namespace DistributedDatabase.Controllers
     public class FormController : Controller
     {
         [HttpGet]
-        public IActionResult ShowDatabase()
-        {
-            using (var context = new ApplicationContext())
-            {
-                string result = "";
-                foreach (var character in context.Characters)
-                {
-                    result += character?.Name + " - " + context.Races.First(x => x.Id == character.RaceId).Name + "\n";
-                }
-                return Content(result);
-            }
-        }
-
-        [HttpGet]
         public IActionResult UserForm() => View();
         
         [HttpGet]

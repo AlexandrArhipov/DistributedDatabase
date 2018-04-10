@@ -1,0 +1,11 @@
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\bin\Release\netcoreapp2.0\DistributedDatabase.deps.json
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\bin\Release\netcoreapp2.0\DistributedDatabase.runtimeconfig.json
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\bin\Release\netcoreapp2.0\DistributedDatabase.runtimeconfig.dev.json
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\bin\Release\netcoreapp2.0\DistributedDatabase.dll
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\bin\Release\netcoreapp2.0\DistributedDatabase.pdb
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\obj\Release\netcoreapp2.0\DistributedDatabase.csproj.CoreCompileInputs.cache
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\obj\Release\netcoreapp2.0\DistributedDatabase.AssemblyInfoInputs.cache
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\obj\Release\netcoreapp2.0\DistributedDatabase.AssemblyInfo.cs
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\obj\Release\netcoreapp2.0\DistributedDatabase.dll
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\obj\Release\netcoreapp2.0\DistributedDatabase.pdb
+C:\Users\alexu\Source\Repos\DistributedDatabase\DistributedDatabase\DistributedDatabase\obj\Release\netcoreapp2.0\DistributedDatabase.csprojResolveAssemblyReference.cache
