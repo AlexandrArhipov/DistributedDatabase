@@ -30,6 +30,10 @@
                     <li><a asp-area="" asp-controller="Form" asp-action="CharacterForm">Создание нового персонажа</a></li>
                     <li><a asp-area="" asp-controller="Visualization" asp-action="Users">Пользователи</a></li>
                     <li><a asp-area="" asp-controller="Visualization" asp-action="Characters">Персонажи</a></li>
+                    @if (User.Identity.Name != null)
+                    {
+                        <li><a asp-area="" asp-controller="Form" asp-action="Logout">@User.Identity.Name (выйти)</a></li>
+                    }
                 </ul>
             </div>
         </div>
@@ -39,6 +43,7 @@
         <hr />
         <footer>
             <p>&copy; 2018 - Удалов А.Д., Архипов А.Н. - ИКБО-01-15</p>
+            <p>&copy; 2018 - Архипов А.Н. - ИКБО-01-15</p>
         </footer>
     </div>
     @RenderSection("Scripts", required: false)

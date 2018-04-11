@@ -40,7 +40,7 @@
                         .RepeatHeaders()
                         .TemplateId("page-template")
                         .FileName("acount_manager/user.pdf")
-                        .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
+                        .ProxyURL(Url.Action("PDF_Export_Save", "Grid"))
                     )
                     .ToolBar(tools => tools.Excel())
                     .Excel(excel => excel

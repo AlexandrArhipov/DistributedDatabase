@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,13 @@ namespace DistributedDatabase
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             
             services.AddKendo();
+            
+            // установка конфигурации подключения
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Form/AuthForm");
+                });
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -38,12 +46,14 @@ namespace DistributedDatabase
 
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+
             app.UseKendo(env);
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Test}/{action=TelerikTest}/{id?}");
+                    template: "{controller=Form}/{action=UserForm}/{id?}");
             });
 
         }
