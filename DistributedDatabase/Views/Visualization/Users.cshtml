@@ -11,6 +11,7 @@
     <script src="~/lib/kendo-ui/js/kendo.all.min.js"></script>
     <script src="~/lib/kendo-ui/js/cultures/kendo.culture.ru-RU.min.js"></script>
     <script src="~/lib/kendo-ui/js/kendo.aspnetmvc.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 }
 
 <h2>Users</h2>
@@ -41,12 +42,12 @@
                         .FileName("acount_manager/user.pdf")
                         .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
                     )
-                    //.ToolBar(tools => tools.Excel())
-                    //.Excel(excel => excel
-                    //    .FileName("Kendo UI Grid Export.xlsx")
-                    //    .Filterable(true)
-                    //    .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
-                    //)
+                    .ToolBar(tools => tools.Excel())
+                    .Excel(excel => excel
+                        .FileName("Kendo UI Grid Export.xlsx")
+                        .Filterable(true)
+                        .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
+                    )
 
                     .Columns(columns =>
                     {
@@ -126,7 +127,27 @@
                     )
                 </div>
                 );
+        tabstrip.Add()
+            .Text("Дополнительные элементы")
+            .Content(x => Html.Kendo().Button()
+                            .Name("showPopupNotification")
+                            .Content("Всплывающее уведомление")
+            );
         })
      )
 </div>
 
+@(Html.Kendo().Notification()
+    .Name("popupNotification")
+)
+
+<script>
+    $(document).ready(function() {
+        var popupNotification = $("#popupNotification").data("kendoNotification");
+
+        $("#showPopupNotification").click(function () {
+            var d = new Date();
+            popupNotification.show(kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000"), "error");
+        });
+    });
+</script>

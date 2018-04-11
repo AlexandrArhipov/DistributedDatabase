@@ -7,10 +7,11 @@
 
 @section DevelopmentEnvironment {
     <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.common.min.css" />
-    <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.materialblack.min.css" />
+    <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.material.min.css" />
     <script src="~/lib/kendo-ui/js/kendo.all.min.js"></script>
     <script src="~/lib/kendo-ui/js/cultures/kendo.culture.ru-RU.min.js"></script>
     <script src="~/lib/kendo-ui/js/kendo.aspnetmvc.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 }
 
 <h2>Characters</h2>
@@ -23,38 +24,38 @@
                 effect.Fade(FadeDirection.In)))
         .Items(tabstrip =>
         {
-        tabstrip.Add()
-        .Text("Таблица")
-        .Selected(true)
-        .Content(x =>
-            Html.Kendo().Grid(Model)
-                .Name("Персонажи")
-                .ToolBar(tools => tools.Pdf())
-                .Pdf(pdf => pdf
-                    .AllPages()
-                    .AvoidLinks()
-                    .PaperSize("A4")
-                    .Margin("2cm", "1cm", "1cm", "1cm")
-                    .Landscape()
-                    .RepeatHeaders()
-                    .TemplateId("page-template")
-                    .FileName("acount_manager/character.pdf")
-                    .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
-                )
-                .ToolBar(tools => tools.Excel())
-                .Excel(excel => excel
-                    .FileName("acount_manager/character.xlsx")
-                    .Filterable(true)
-                    .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
-                )
+            tabstrip.Add()
+            .Text("Таблица персонажей")
+            .Selected(true)
+            .Content(content =>
+                Html.Kendo().Grid(Model)
+                    .Name("Персонажи")
+                    .ToolBar(tools => tools.Pdf())
+                    .Pdf(pdf => pdf
+                        .AllPages()
+                        .AvoidLinks()
+                        .PaperSize("A4")
+                        .Margin("2cm", "1cm", "1cm", "1cm")
+                        .Landscape()
+                        .RepeatHeaders()
+                        .TemplateId("page-template")
+                        .FileName("acount_manager/character.pdf")
+                        .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
+                    )
+                    .ToolBar(tools => tools.Excel())
+                    .Excel(excel => excel
+                        .FileName("acount_manager/character.xlsx")
+                        .Filterable(true)
+                        .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
+                    )
 
-                .Columns(columns =>
-                {
-                    columns.Bound(p => p.Name).Title("Имя").Width(100);
-                    columns.Bound(p => p.Sex).Title("Пол").Width(130);
-                    columns.Bound(p => p.Skin).Title("Цвет кожи").Width(130);
-                    columns.Bound(p => p.Height).Title("Рост").Width(130);
-                    columns.Bound(p => p.Weight).Title("Вес").Width(130);
+                    .Columns(columns =>
+                    {
+                        columns.Bound(p => p.Name).Title("Имя").Width(100);
+                        columns.Bound(p => p.Sex).Title("Пол").Width(130);
+                        columns.Bound(p => p.Skin).Title("Цвет кожи").Width(130);
+                        columns.Bound(p => p.Height).Title("Рост").Width(130);
+                        columns.Bound(p => p.Weight).Title("Вес").Width(130);
                     //columns.Bound(p => ((List<Race>) ViewData["Races"])
                     //    .First(race => race.Id == p.RaceId))
                     //    .Title("Раса").Width(130);
@@ -63,70 +64,141 @@
                     //    .Title("Класс").Width(130);
 
                 })
-                .Sortable()
-                .Scrollable(scr => scr.Height(430))
-                .Filterable()
-                .DataSource(dataSource => dataSource
-                    .Ajax()
-                    .PageSize(20)
-                    .ServerOperation(false)
-                 )
+                    .Sortable()
+                    .Scrollable(scr => scr.Height(430))
+                    .Filterable()
+                    .DataSource(dataSource => dataSource
+                        .Ajax()
+                        .PageSize(20)
+                        .ServerOperation(false)
+                     )
+                );
+            //tabstrip.Add()
+            //.Text("Гендерный состав персонажей")
+            //.Content(content => 
+            //    Html.Kendo().Chart(Model)
+            //        .Name("chart")
+            //        .Title(title => title
+            //            .Text("Гендерный состав персонажей")
+            //            .Position(ChartTitlePosition.Bottom)
+            //            )
+            //        .Legend(legend => legend
+            //            .Position(ChartLegendPosition.Left)
+            //            )
+            //        .Series(series =>
+            //            {
+            //                series.Pie(new dynamic[] {
+            //                new {
+            //                    category ="Мужской пол",
+            //                    value = 100*Model.Where(x => x.Sex == "M").Count()/Model.Count(),
+            //                    color ="#0090DB"
+            //                },
+            //                new {
+            //                    category ="Женский пол",
+            //                    value = 100*Model.Where(x => x.Sex == "F").Count()/Model.Count(),
+            //                    color ="#004D74"
+            //                }
+            //                })
+            //            .Labels(labels => labels
+            //                .Template("#= category #: \n #= value#%")
+            //                .Background("transparent")
+            //                .Visible(true))
+            //            .StartAngle(150);
+            //        })
+            //        .Tooltip(tooltip => tooltip
+            //            .Template("${ category } - ${ value }%")
+            //            .Visible(true)
+            //            )
+            //      );
+            tabstrip.Add()
+            .Text("Рост персонажей")
+            .Content(content =>
+                Html.Kendo().Chart(Model)
+                    .Name("chart")
+                    .Title("Рост персонажей")
+                    .Legend(legend => legend
+                        .Position(ChartLegendPosition.Bottom)
+                    )
+                    .ChartArea(chartArea => chartArea
+                        .Background("transparent")
+                    )
+                    .SeriesDefaults(seriesDefaults =>
+                        seriesDefaults.Area().Line(line => line.Style(ChartSeriesLineStyle.Smooth))
+                    )
+                    .Series(series =>
+                    {
+                        series.Area(new double[]
+                        {
+                        100*Model.Where(character =>
+                            character.Height <= 150).Count()/Model.Count(),
+                        100*Model.Where(character =>
+                            character.Height > 150 &&
+                            character.Height <= 160)
+                            .Count()/Model.Count(),
+                        100*Model.Where(character =>
+                            character.Height > 160 &&
+                            character.Height <= 170)
+                            .Count()/Model.Count(),
+                        100*Model.Where(character =>
+                            character.Height > 170 &&
+                            character.Height <= 180)
+                            .Count()/Model.Count(),
+                        100*Model.Where(character =>
+                            character.Height > 180 &&
+                            character.Height <= 190)
+                            .Count()/Model.Count(),
+                        100*Model.Where(character =>
+                            character.Height > 190 &&
+                            character.Height <= 200)
+                            .Count()/Model.Count(),
+                        100*Model.Where(character =>
+                            character.Height > 200).Count()/Model.Count()
+                        })
+                        .Name("Процент персонажей");
+                    })
+                    .CategoryAxis(axis => axis
+                        .Categories("< 150", "150-160", "160-170", "170-180", "180-190", "190-200", "> 200")
+                        .MajorGridLines(lines => lines.Visible(false))
+                    )
+                    .ValueAxis(axis => axis
+                        .Numeric()
+                        .Labels(labels => labels.Format("{0}%"))
+                        .AxisCrossingValue(0)
+                        .Line(line => line.Visible(false))
+                    )
+                    .Tooltip(tooltip => tooltip
+                        .Visible(true)
+                        .Format("{0}%")
+                        .Template("#= series.name #: #= value #%")
+                    )
+                );
+            tabstrip.Add()
+            .Text("Дополнительные элементы")
+            .Content(x => Html.Kendo().Button()
+                            .Name("showPopupNotification")
+                            .Content("Всплывающее уведомление")
             );
-        tabstrip.Add()
-        .Text("График")
-        .Content(@<div class="chart">
-                        @(Html.Kendo().Chart(Model)
-                                            .Name("chart")
-                                            .Title(title => title
-                                                .Text("Возраст игроков")
-                                                .Position(ChartTitlePosition.Bottom)
-                                                )
-                                            .Legend(legend => legend
-                                                .Position(ChartLegendPosition.Left)
-                                                )
-                                            .Series(series =>
-                                            {
-                                                series.Pie(new dynamic[] {
-                                        new {
-                                            category ="< 20 лет",
-                                            value = 1,
-                                            color ="#9de219"
-                                        },
-                                        new {
-                                            category ="20-30 лет",
-                                            value = 1,
-                                            color ="#90cc38"
-                                        },
-                                        new
-                                        {
-                                            category = "30-40 лет",
-                                            value = 1,
-                                            color = "#068c35"
-                                        },
-                                        new
-                                        {
-                                            category = "> 40 лет",
-                                            value = 1,
-                                            color = "#006634"
-                                        }
-                                                })
-                                                .Labels(labels => labels
-                                                    .Template("#= category #: \n #= value#%")
-                                                    .Background("transparent")
-                                                    .Visible(true)
-                                                )
-                                                .StartAngle(150);
-                                            })
-                                            .Tooltip(tooltip => tooltip
-                                                .Template("${ category } - ${ value }%")
-                                                .Visible(true)
-
-                                            )
-
-
-                        )
-                    </div>
-                                    );
-                                })
+        })
     )
 </div>
+
+@(Html.Kendo().Notification()
+    .Name("popupNotification")
+    .HideOnClick(true)
+    .Width("12em")
+    .Templates(t =>
+    {
+        t.Add().Type("time").ClientTemplate("<div style='padding: .6em 1em'><span style='color: white'>Time is: #: time #</span></div>");
+    })
+)
+
+<script>
+    $(document).ready(function() {
+        var popupNotification = $("#popupNotification").data("kendoNotification");
+
+        $("#showPopupNotification").click(function () {
+            var d = new Date();
+            popupNotification.show({ time: kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000") }, "time");
+        });
+    });
+</script>

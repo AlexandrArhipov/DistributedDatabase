@@ -17,7 +17,7 @@ namespace DistributedDatabase.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL(
-                "Server=localhost;UserId=root;Password=root;database=acount_manager;");
+                "Server = udalovmysql.mysql.database.azure.com; Port = 3306; Database = acount_manager; Uid = AlexUD@udalovmysql; Pwd = Udalovmysql1263;");
         }
     }
 }

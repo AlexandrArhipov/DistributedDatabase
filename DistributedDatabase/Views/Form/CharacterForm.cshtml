@@ -1,26 +1,104 @@
 ﻿@{
     ViewData["Title"] = "CharacterForm";
 }
+
+@section DevelopmentEnvironment {
+    <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.metro.min.css" />
+    <script src="~/lib/kendo-ui/js/kendo.all.min.js"></script>
+    <script src="~/lib/kendo-ui/js/cultures/kendo.culture.ru-RU.min.js"></script>
+    <script src="~/lib/kendo-ui/js/kendo.aspnetmvc.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+}
+
+<br />
+<br />
 <h1>Создание персонажа</h1>
-<form method="post">
+<form id = "characterform" method="post">
     <label>Имя:</label><br />
-    <input type="text" name="name" /><br /><br />
+    @(Html.Kendo().MaskedTextBox()
+                                  .Name("name")
+    )<br /><br />
     <label>Пол:</label><br />
-    <select name="sex" >
-        <option value="M"> Мужской </option>
-        <option value="F"> Женский </option>
-    </select><br /><br />
+    @(Html.Kendo().DropDownList()
+                          .Name("sex")
+                          .BindTo(new List<string>() {
+      "Мужской",
+      "Женский"
+                          })
+    )<br /><br />
+
     <label>Цвет кожи:</label><br />
-    <input type="text" name="skin" /><br /><br />
+    @(Html.Kendo().MaskedTextBox()
+                                  .Name("skin")
+    )<br /><br />
     <label>Рост:</label><br />
-    <input type="text" name="height" /><br /><br />
+    @(Html.Kendo().NumericTextBox<int>()
+                            .Name("height")
+                            .Value(170)
+                            .Placeholder("Введите рост")
+    )
+    <br /><br />
     <label>Вес:</label><br />
-    <input type="text" name="weight" /><br /><br />
+    @(Html.Kendo().NumericTextBox<int>()
+                            .Name("weight")
+                            .Value(80)
+                            .Placeholder("Введите вес")
+    )<br /><br />
     <label>Класс:</label><br />
-    <input type="text" name="class" /><br /><br />
+    @(Html.Kendo().MaskedTextBox()
+                                  .Name("class")
+    )<br /><br />
     <label>Расса:</label><br />
-    <input type="text" name="race" /><br /><br />
-    <input type="submit" value="Отправить" />
+    @(Html.Kendo().MaskedTextBox()
+                                  .Name("race")
+    )<br /><br />
+    @(Html.Kendo().Button()
+                            .Name("submitbutton")
+                            .HtmlAttributes(new { type = "button", @class = "k-primary" })
+                            .Content("Отправить")
+                            .Events(ev => ev.Click("showDialog")))
 </form>
+
+<div id="example">
+    @(Html.Kendo().Dialog()
+                .Name("dialog")
+                .Title("Подтверждение")
+                .Visible(false)
+                .Content("<p>Вы уверены, что хотите создать персонажа?<p>")
+                .Width(400)
+                .Modal(false)
+                .Actions(actions =>
+                {
+                    actions.Add().Text("Нет");
+                    actions.Add().Text("Да").Primary(true).Action("onSubmit");
+                })
+                .Events(ev => ev.Close("onClose").Open("onOpen"))
+    )
+</div>
+
+<script>
+    function onClose() {
+        $("#submitbutton").fadeIn();
+    }
+
+    function onOpen() {
+        $("#submitbutton").fadeOut();
+    }
+
+    function showDialog() {
+        $('#dialog').data("kendoDialog").open();
+    }
+
+    function onSubmit() {
+        $('#characterform').submit();
+    }
+</script>
+
+<style>
+    #example {
+        min-height: 350px;
+    }
+</style>
 
 
