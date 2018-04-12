@@ -13,12 +13,12 @@
         @RenderSection("DevelopmentEnvironment", required: false)
     </environment>
     <environment exclude="Development">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 
-    @RenderSection("Environment", required: false)
-</environment>
+        @RenderSection("DevelopmentEnvironment", required: false)
+    </environment>
     
 </head>
 <body>
@@ -42,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - Архипов А.Н. - ИКБО-01-15</p>
+            <p>&copy; 2018 - Удалов А.Д. - ИКБО-01-15</p>
         </footer>
     </div>
     @RenderSection("Scripts", required: false)

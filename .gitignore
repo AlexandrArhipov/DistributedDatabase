@@ -3,3 +3,13 @@
 ################################################################################
 
 /DistributedDatabase/bin/Debug/netcoreapp2.0
+/DistributedDatabase/obj/Debug/netcoreapp2.0/DistributedDatabase.pdb
+/DistributedDatabase/obj/Debug/netcoreapp2.0/DistributedDatabase.dll
+/DistributedDatabase/obj/Debug/netcoreapp2.0/DistributedDatabase.csprojResolveAssemblyReference.cache
+/DistributedDatabase/obj/Debug/netcoreapp2.0/DistributedDatabase.csproj.FileListAbsolute.txt
+/DistributedDatabase/obj/Debug/netcoreapp2.0/DistributedDatabase.csproj.CoreCompileInputs.cache
+/DistributedDatabase/obj/Debug/netcoreapp2.0/DistributedDatabase.AssemblyInfoInputs.cache
+/DistributedDatabase/obj/Debug/netcoreapp2.0/DistributedDatabase.AssemblyInfo.cs
+/DistributedDatabase/obj/DistributedDatabase.csproj.nuget.cache
+/DistributedDatabase/obj/DistributedDatabase.csproj.nuget.g.targets
+/DistributedDatabase/obj/DistributedDatabase.csproj.nuget.g.props
