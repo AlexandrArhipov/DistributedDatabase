@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DistributedDatabase.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DistributedDatabase.Controllers
 {
     public class VisualizationController : Controller
     {
         [HttpGet]
+        [Authorize]
         public IActionResult Characters()
         {
             var context = new ApplicationContext();
@@ -21,6 +23,7 @@ namespace DistributedDatabase.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Users() => 
             View((new ApplicationContext()).Users);
     }
