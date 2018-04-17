@@ -16,10 +16,15 @@ using Microsoft.EntityFrameworkCore;
 namespace DistributedDatabase.Controllers
 {
     public class FormController : Controller
-    {   
+    {
         [HttpGet]
         [Authorize]
-        public IActionResult UserForm() => View();
+        public IActionResult UserForm()
+        {
+            var countries = new ApplicationContext().Countries.Select(x => x.TitlesRu).ToList();
+            ViewData["Countries"] = countries;
+            return View();
+        }
         
         [HttpGet]
         [Authorize]

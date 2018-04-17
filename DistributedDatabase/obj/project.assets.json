@@ -13589,7 +13589,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R1 2018": {},
-        "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R1 2018\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
+        "C:\\Users\\Alex\\RiderProjects\\DistributedDatabase\\Telerik UI for ASP.NET Core R1 2018\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
         "C:\\Users\\alexu\\.nuget\\packages\\Telerik.UI.for.AspNet.Core\\2018.1.221": {},
         "https://api.nuget.org/v3/index.json": {}
       },

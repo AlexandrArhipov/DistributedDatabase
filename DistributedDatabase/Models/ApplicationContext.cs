@@ -13,6 +13,8 @@ namespace DistributedDatabase.Models
         public DbSet<Class> Classes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Character> Characters { get; set; }
+        public DbSet<Country> Countries { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
