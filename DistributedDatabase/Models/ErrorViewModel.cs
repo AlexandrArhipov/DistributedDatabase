@@ -1,5 +1,3 @@
-using System;
-
 namespace DistributedDatabase.Models
 {
     public class ErrorViewModel

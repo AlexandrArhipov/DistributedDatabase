@@ -2624,6 +2624,15 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
+        "type": "package",
+        "compile": {
+          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
+        }
+      },
       "Microsoft.Rest.ClientRuntime/2.3.8": {
         "type": "package",
         "dependencies": {
@@ -2803,6 +2812,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "Mvp.Xml/2.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/Mvp.Xml.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Mvp.Xml.dll": {}
         }
       },
       "MySql.Data/6.10.6": {
@@ -7758,6 +7776,16 @@
         "runtime.json"
       ]
     },
+    "Microsoft.Office.Interop.Word/15.0.4797.1003": {
+      "sha512": "p22pljmHaQjDxNLqO+uO5vi3y0TK5t1mAtSAg93K28/e12Hw3qzfflAo6XHvNXxnvz9HZGv59vLCwIaC9xbXNQ==",
+      "type": "package",
+      "path": "microsoft.office.interop.word/15.0.4797.1003",
+      "files": [
+        "lib/net20/Microsoft.Office.Interop.Word.dll",
+        "microsoft.office.interop.word.15.0.4797.1003.nupkg.sha512",
+        "microsoft.office.interop.word.nuspec"
+      ]
+    },
     "Microsoft.Rest.ClientRuntime/2.3.8": {
       "sha512": "Hj96LBoCwKY2VQKfSCVGGPV1sSumVjuYnrlpBwL4JSTnSK4b6ZxjLtXj8LgmKav8xJ2gps+UN7eI3hHVFKvBFw==",
       "type": "package",
@@ -8004,6 +8032,19 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Mvp.Xml/2.3.0": {
+      "sha512": "us4ukKyok9OAuLKFfdrCha/8/ehF7FZ1oAUotcb6dowiTVEcDHdsz9pzFKbWBJ4JLB99xACTL6bd5k3ArSHALw==",
+      "type": "package",
+      "path": "mvp.xml/2.3.0",
+      "files": [
+        "ReleaseNotes.htm",
+        "lib/net20/Mvp.Xml.dll",
+        "lib/net20/Mvp.Xml.xml",
+        "license.txt",
+        "mvp.xml.2.3.0.nupkg.sha512",
+        "mvp.xml.nuspec"
       ]
     },
     "MySql.Data/6.10.6": {
@@ -13490,8 +13531,6 @@
       "type": "package",
       "path": "telerik.ui.for.aspnet.core/2018.1.221",
       "files": [
-        "Telerik.UI.for.AspNet.Core.2018.1.221.nupkg.sha512",
-        "Telerik.UI.for.AspNet.Core.nuspec",
         "lib/net451/Kendo.Mvc.dll",
         "lib/net451/bg-BG/Kendo.Mvc.resources.dll",
         "lib/net451/cs-CZ/Kendo.Mvc.resources.dll",
@@ -13529,7 +13568,9 @@
         "lib/netstandard1.6/sv-SE/Kendo.Mvc.resources.dll",
         "lib/netstandard1.6/tr-TR/Kendo.Mvc.resources.dll",
         "lib/netstandard1.6/uk-UA/Kendo.Mvc.resources.dll",
-        "lib/netstandard1.6/zh-CN/Kendo.Mvc.resources.dll"
+        "lib/netstandard1.6/zh-CN/Kendo.Mvc.resources.dll",
+        "telerik.ui.for.aspnet.core.2018.1.221.nupkg.sha512",
+        "telerik.ui.for.aspnet.core.nuspec"
       ]
     },
     "WindowsAzure.Storage/8.1.4": {
@@ -13559,38 +13600,38 @@
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.6",
       "Microsoft.NETCore.App >= 2.0.0",
+      "Microsoft.Office.Interop.Word >= 15.0.4797.1003",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3",
+      "Mvp.Xml >= 2.3.0",
       "MySql.Data.EntityFrameworkCore >= 6.10.6",
       "Telerik.UI.for.AspNet.Core >= 2018.1.221"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alexu\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/Alex/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexu\\Source\\Repos\\DistributedDatabase\\DistributedDatabase\\DistributedDatabase\\DistributedDatabase.csproj",
+      "projectUniqueName": "/Users/Alex/RiderProjects/DistributedDatabase/DistributedDatabase/DistributedDatabase.csproj",
       "projectName": "DistributedDatabase",
-      "projectPath": "C:\\Users\\alexu\\Source\\Repos\\DistributedDatabase\\DistributedDatabase\\DistributedDatabase\\DistributedDatabase.csproj",
-      "packagesPath": "C:\\Users\\alexu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexu\\Source\\Repos\\DistributedDatabase\\DistributedDatabase\\DistributedDatabase\\obj\\",
+      "projectPath": "/Users/Alex/RiderProjects/DistributedDatabase/DistributedDatabase/DistributedDatabase.csproj",
+      "packagesPath": "/Users/Alex/.nuget/packages/",
+      "outputPath": "/Users/Alex/RiderProjects/DistributedDatabase/DistributedDatabase/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\alexu\\Source\\Repos\\DistributedDatabase\\DistributedDatabase\\NuGet.Config",
-        "C:\\Users\\alexu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/Alex/RiderProjects/DistributedDatabase/NuGet.Config",
+        "/Users/Alex/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R1 2018": {},
-        "C:\\Users\\Alex\\RiderProjects\\DistributedDatabase\\Telerik UI for ASP.NET Core R1 2018\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
-        "C:\\Users\\alexu\\.nuget\\packages\\Telerik.UI.for.AspNet.Core\\2018.1.221": {},
+        "/Users/Alex/RiderProjects/DistributedDatabase/Telerik UI for ASP.NET Core R1 2018/wrappers/aspnetcore/Binaries/AspNet.Core": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13612,13 +13653,22 @@
             "version": "[2.0.6, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
           },
+          "Microsoft.Office.Interop.Word": {
+            "target": "Package",
+            "version": "[15.0.4797.1003, )"
+          },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.0.3, )"
+          },
+          "Mvp.Xml": {
+            "target": "Package",
+            "version": "[2.3.0, )"
           },
           "MySql.Data.EntityFrameworkCore": {
             "target": "Package",
@@ -13636,5 +13686,27 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Office.Interop.Word 15.0.4797.1003' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Office.Interop.Word",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Mvp.Xml 2.3.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Mvp.Xml",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }

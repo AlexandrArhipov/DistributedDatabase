@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<User>
-@using System;
 @{
     ViewData["Title"] = "Users";
 }
@@ -40,7 +39,7 @@
                         .RepeatHeaders()
                         .TemplateId("page-template")
                         .FileName("acount_manager/user.pdf")
-                        .ProxyURL(Url.Action("PDF_Export_Save", "Grid"))
+                        .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
                     )
                     .ToolBar(tools => tools.Excel())
                     .Excel(excel => excel
@@ -133,6 +132,12 @@
                             .Name("showPopupNotification")
                             .Content("Всплывающее уведомление")
             );
+        tabstrip.Add()
+            .Text("Печать в ворд")
+            .Content(x => Html.Kendo().Button()
+                .Name("wordExport")
+                .Content("Распечатать чек")
+            );
         })
      )
 </div>
@@ -148,6 +153,15 @@
         $("#showPopupNotification").click(function () {
             var d = new Date();
             popupNotification.show(kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000"), "error");
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#wordExport").click(function() {
+            var url = '@Url.Action("ExoprtToWord", "Visualization")';
+            window.location = url;
         });
     });
 </script>
